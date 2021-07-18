@@ -275,7 +275,7 @@ sns.barplot(x="Trajecte", y="Distance", data=Aerol_delay, order=plot_order[1:15]
 plt.show(10)
 
 
-# In[37]:
+# In[71]:
 
 
 print("Aerolinies que més endarreriments tenen:")
@@ -288,6 +288,17 @@ sns.barplot(x="UniqueCarrier", y="DepDelay", data=Aerol_delay,order=['WN', 'AA',
                                                                                 'US', 'NW','FL', 'B6','OH','9E',
                                                                                  'AS','F9','HA','AQ'])
 plt.show()
+
+
+# In[99]:
+
+
+print("Aerolinies que més endarreriments tenen:")
+
+nou_df = df[['UniqueCarrier', 'DepDelay']]
+
+na = nou_df.groupby(by='UniqueCarrier', sort=False).sum()
+na.sort_values(by=['DepDelay'], ascending=False)
 
 
 # In[40]:
